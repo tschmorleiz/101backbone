@@ -1,0 +1,42 @@
+<legend>Department "<%= model.name %>"
+  <label>
+    Part of
+  <% if (typeof(model.company) != "undefined") { %>
+        <a href="#companies/<%= model.company._id %>">
+            <%= model.company.name %>
+        </a>
+  <% } else { %>
+        <a href="#departments/<%= model.department._id %>">
+            <%= model.department.name %>
+        </a>
+  <% } %>
+  </label>
+</legend>
+ <button class="btn btn-small" type="button" id="delete-button">
+    <i class="icon-remove"></i> Delete
+</button>
+<label><strong>Name:</strong></label>
+<input type="text" placeholder="<%= model.name %>">
+<br>
+<label><strong>Manager:</strong></label>
+<a href="#employees/<%= model.manager._id %>">
+    <%= model.manager.name %>
+</a>
+<br><br>
+<label><strong>Departments:</strong></label>
+<ul>
+<% _.each(model.dus, function(d) {  %>
+  <li>
+    <a href="#departments/<%= d._id %>"><%= d.name %></a>
+  </li>
+<% }); %>
+</ul>
+<br>
+<label><strong>Employee:</strong></label>
+<ul>
+<% _.each(model.eus, function(e) {  %>
+  <li>
+    <a href="#employees/<%= e._id %>"><%= e.name %></a>
+  </li>
+<% }); %>
+</ul>

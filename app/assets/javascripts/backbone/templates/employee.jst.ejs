@@ -1,0 +1,37 @@
+<legend>Employee "<%= model.name %>"
+<% if (typeof(model.department) != "undefined") { %>
+  <label>
+      Works at
+      <a href="#departments/<%= model.department._id %>">
+          <%= model.department.name %>
+      </a>
+  </label>
+<% } else { %>
+  <label>
+      Manager of
+      <a href="#departments/<%= model.managed_department._id %>">
+          <%= model.managed_department.name %>
+      </a>
+  </label>
+<% } %>
+</legend>
+<button class="btn btn-small" type="button" id="delete-button">
+    <i class="icon-remove"></i> Delete
+</button>
+<button class="btn btn-small" type="button" id="save-button">
+    <i class="icon-ok"></i> Save
+</button>
+<label><strong>Name:</strong></label>
+<input id="nameInput" type="text" value="<%= model.name %>">
+<br>
+<label><strong>Address:</strong></label>
+<input id="addressInput" type="text" value="<%= model.address %>">
+<br>
+<label><strong>Salary:</strong></label>
+<input id="salaryInput" type="text" value="<%= model.salary %>">
+<div id="kids">
+  <% _.each(model.kids, function(k,i) { %>
+      <i class="icon-remove"></i> <li class="btn kidsButton" data-id="<%= i %>"><%= k %></li>
+  <% }); %>
+</div>
+

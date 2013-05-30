@@ -1,0 +1,15 @@
+<legend>Company "<%= model.name %>"</legend>
+ <button class="btn btn-small" type="button" id="delete-button">
+    <i class="icon-remove"></i> Delete
+</button>
+<label>Name:</label>
+<input type="text" placeholder="<%= model.name %>">
+<br>
+<label>Departments:</label>
+<ul>
+<% _.each(model.departments, function(d) {  %>
+  <li>
+    <a href="#departments/<%= d._id %>"><%= d.name %></a>
+  </li>
+<% }); %>
+</ul>
