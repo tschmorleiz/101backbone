@@ -1,4 +1,4 @@
-<legend>Employee "<%= model.name %>"
+<legend>Employee "<span id="titleName"><%= model.name %></span>"
 <% if (typeof(model.department) != "undefined") { %>
   <label>
       Works at
@@ -21,6 +21,7 @@
 <button class="btn btn-small" type="button" id="save-button">
     <i class="icon-ok"></i> Save
 </button>
+<hr>
 <label><strong>Name:</strong></label>
 <input id="nameInput" type="text" value="<%= model.name %>">
 <br>

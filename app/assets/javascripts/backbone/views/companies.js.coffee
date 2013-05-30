@@ -5,6 +5,7 @@ class App.Views.Companies extends Backbone.View
 
   events:
     'click #delete-button' : 'delete'
+    'click #save-button' : 'save'
 
   initialize: (id) ->
     self = @
@@ -14,7 +15,6 @@ class App.Views.Companies extends Backbone.View
       success: (model) ->
         self.log('Success fetching "' + id + '"')
         self.render()
-        window.f = model
     )
 
   render: ->
@@ -24,8 +24,14 @@ class App.Views.Companies extends Backbone.View
   delete: ->
     @model.destroy(
       success: ->
-        window.history.back()
+        window.location = '/reset'
     )
+
+  save: ->
+    @model.save({
+      name: $('#nameInput').val()
+    })
+    $('#titleName').text(@model.get('name'))
 
   log: (msg) ->
     console.log('View (companies): ' + msg)

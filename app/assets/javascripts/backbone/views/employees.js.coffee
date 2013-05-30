@@ -19,7 +19,6 @@ class App.Views.Employees extends Backbone.View
     )
 
   render: ->
-    console.log(@model.toJSON())
     document.title = 'employee > ' + @model.get('name')
     $(@el).html(@template(model: @model.toJSON()))
 
@@ -39,12 +38,12 @@ class App.Views.Employees extends Backbone.View
       @model.save()
 
   save: ->
-    console.log(@model.toJSON())
     @model.save({
       name: $('#nameInput').val()
       address: $('#addressInput').val()
       salary: $('#salaryInput').val()
     })
+    $('#titleName').text(@model.get('name'))
 
   log: (msg) ->
     console.log('View (employees): ' + msg)

@@ -1,9 +1,13 @@
-<legend>Company "<%= model.name %>"</legend>
+<legend>Company "<span id="titleName"><%= model.name %></span>"</legend>
  <button class="btn btn-small" type="button" id="delete-button">
-    <i class="icon-remove"></i> Delete
+    <i class="icon-remove"></i> Delete and reset
 </button>
+<button class="btn btn-small" type="button" id="save-button">
+    <i class="icon-ok"></i> Save
+</button>
+<hr>
 <label>Name:</label>
-<input type="text" placeholder="<%= model.name %>">
+<input id="nameInput" type="text" value="<%= model.name %>">
 <br>
 <label>Departments:</label>
 <ul>

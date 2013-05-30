@@ -5,6 +5,7 @@ class App.Views.Departments extends Backbone.View
 
   events:
     'click #delete-button' : 'delete'
+    'click #save-button' : 'save'
 
   initialize: (id) ->
     self = @
@@ -26,6 +27,12 @@ class App.Views.Departments extends Backbone.View
       success: ->
         window.history.back()
     )
+
+  save: ->
+    @model.save({
+      name: $('#nameInput').val()
+    })
+    $('#titleName').text(@model.get('name'))
 
   log: (msg) ->
     console.log('View (departments): ' + msg)

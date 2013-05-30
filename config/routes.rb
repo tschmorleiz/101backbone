@@ -18,11 +18,13 @@ scope 'api' do
   scope 'departments' do
     get ':_id' => 'departments#get'
     delete ':_id' => 'departments#delete'
+    put ':_id' => 'departments#update'
   end
 
   scope 'companies' do
     get ':_id' => 'companies#get'
     delete ':_id' => 'companies#delete'
+    put ':_id' => 'companies#update'
   end
 end
 
