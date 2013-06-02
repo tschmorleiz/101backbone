@@ -6,6 +6,6 @@ A simple [backbone.js](http://backbonejs.org) application implementing various [
 
 ### Current limitations / TODOs
 
-* The nested model of companies and departments is currently not reflected in the Backbone model. Possible solution: use backbone-nested.
+* The nested model of companies and departments is currently not reflected in the Backbone model. Possible solution: use backbone-relational.
 * Editing is currently limited to primitve fields. Adding/Removing/Moving departents and employees should be enabled.
 * The features of totaling and cutting salaries is missing.
